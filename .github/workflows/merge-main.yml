@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        name: [backend, database, frontend, init, backend-java, backend-py, backend-go]
+        name: [backend, database, frontend, init]
         include:
           - name: backend
             file: backend/openshift.deploy.yml
@@ -61,22 +61,6 @@ jobs:
           - name: init
             file: common/openshift.init.yml
             overwrite: false
-          - name: backend-py
-            file: backend-python/openshift.deploy.yml
-            overwrite: true
-            parameters:
-              -p MIN_REPLICAS=1 -p MAX_REPLICAS=2
-              -p PROMOTE_MIGRATION=${{ github.repository }}/database-migrations-py:test
-          - name: backend-java
-            file: backend-java/openshift.deploy.yml
-            overwrite: true
-            parameters:
-              -p MIN_REPLICAS=1 -p MAX_REPLICAS=2
-          - name: backend-go
-            file: backend-go/openshift.deploy.yml
-            overwrite: true
-            parameters: -p MIN_REPLICAS=1 -p MAX_REPLICAS=2
-              -p PROMOTE_MIGRATION=${{ github.repository }}/database-migrations-go:test
     steps:
       - uses: bcgov-nr/action-deployer-openshift@v1.1.1
         with:
@@ -101,16 +85,10 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        name: [ quarkus, nest, fiber, fastapi ]
+        name: [ nest ]
         include:
-          - name: quarkus
-            baseUrl: https://quickstart-openshift-test-backend-java.apps.silver.devops.gov.bc.ca
           - name: nest
-            baseUrl: https://quickstart-openshift-test-backend.apps.silver.devops.gov.bc.ca
-          - name: fiber
-            baseUrl: https://quickstart-openshift-test-backend-go.apps.silver.devops.gov.bc.ca
-          - name: fastapi
-            baseUrl: https://quickstart-openshift-test-backend-py.apps.silver.devops.gov.bc.ca
+            baseUrl: https://nr-fop-test-backend.apps.silver.devops.gov.bc.ca
     steps:
       - uses: actions/checkout@v3
         name: Checkout
@@ -169,7 +147,7 @@ jobs:
       - uses: cypress-io/github-action@v5
         name: Cypress run
         with:
-          config: pageLoadTimeout=10000,baseUrl=https://quickstart-openshift-test-frontend.apps.silver.devops.gov.bc.ca/
+          config: pageLoadTimeout=10000,baseUrl=https://nr-fop-test-frontend.apps.silver.devops.gov.bc.ca/
           working-directory: ./frontend
           browser: ${{ matrix.browser }}
       - uses: actions/upload-artifact@v3
@@ -188,7 +166,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        name: [backend, database, frontend, init, backend-py,  backend-java, backend-go]
+        name: [backend, database, frontend, init]
         include:
           - name: backend
             file: backend/openshift.deploy.yml
@@ -204,23 +182,6 @@ jobs:
           - name: init
             file: common/openshift.init.yml
             overwrite: false
-          - name: backend-py
-            file: backend-python/openshift.deploy.yml
-            overwrite: true
-            parameters:
-              -p MIN_REPLICAS=1 -p MAX_REPLICAS=2
-              -p PROMOTE_MIGRATION=${{ github.repository }}/database-migrations-py:test
-          - name: backend-java
-            file: backend-java/openshift.deploy.yml
-            overwrite: true
-            parameters:
-              -p MIN_REPLICAS=1 -p MAX_REPLICAS=2
-          - name: backend-go
-            file: backend-go/openshift.deploy.yml
-            overwrite: true
-            parameters: -p MIN_REPLICAS=1 -p MAX_REPLICAS=2
-              -p PROMOTE_MIGRATION=${{ github.repository }}/database-migrations-go:test
-
     steps:
       - uses: bcgov-nr/action-deployer-openshift@v1.1.1
         with:
@@ -244,7 +205,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        component: [backend, database,database-migrations, frontend, database-migrations-py, backend-py, backend-java, backend-go, database-migrations-go]
+        component: [backend, database,database-migrations, frontend]
     steps:
       - uses: shrink/actions-docker-registry-tag@v3
         with:
