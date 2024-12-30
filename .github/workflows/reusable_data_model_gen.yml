@@ -55,7 +55,7 @@ jobs:
           FLYWAY_PLACEHOLDERS_api_db_username: fp_api_dbuser
           FLYWAY_PLACEHOLDERS_api_db_password: test
         with:
-          args: info migrate info
+          args: -X info migrate info
 
       - name: Create Output Folder
         run: |
