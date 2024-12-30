@@ -44,6 +44,7 @@ Runs on pull request close or merge.
 
 - Cleans up OpenShift objects/artifacts
 - Merge promotes successful build images to TEST
+- Publishes data model documentation
 
 ![](common/graphics/pr-close.png)
 
