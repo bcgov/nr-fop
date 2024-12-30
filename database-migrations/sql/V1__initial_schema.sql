@@ -11,7 +11,7 @@ CREATE TABLE app_fp.fop (
 )
 ;
 
-alter table app_fop.fop add constraint fop_name_uk unique (name)
+alter table app_fp.fop add constraint fop_name_uk unique (name)
 ;
 
 COMMENT ON TABLE app_fp.fop IS 'Forest Operations Plan. Operational plan for managing a portion of the area within a FLP.'
@@ -39,7 +39,7 @@ COMMENT ON COLUMN app_fp.fop.update_date IS 'The date and time the record was cr
 -- CREATE INDEX "Ref219" ON app_fam.fam_application_group_xref(group_id)
 
 
-
+-- Final step - user creation
 
 CREATE USER ${api_db_username} WITH NOSUPERUSER NOCREATEDB NOCREATEROLE PASSWORD '${api_db_password}';
 
