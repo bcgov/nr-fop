@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><database name="fp" schema="app_fp" type="PostgreSQL - 17.2">
    <tables>
+      <table name="flp" remarks="Forest Landscape Plan. Strategic long-term plan for managing forests in an area, under the new regulation regime." schema="app_fp" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="flp_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="flp_id" foreignKey="fop_flp_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <primaryKey column="flp_id" sequenceNumberInPK="1"/>
+         <index name="flp_id_pk" unique="true">
+            <column ascending="true" name="flp_id"/>
+         </index>
+      </table>
       <table name="flyway_schema_history" remarks="" schema="app_fp" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="installed_rank" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="version" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
@@ -22,10 +32,17 @@
       <table name="fop" remarks="Forest Operations Plan. Operational plan for managing a portion of the area within a FLP." schema="app_fp" type="TABLE">
          <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="fop_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a FOP" size="19" type="int8" typeCode="-5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="3" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="5" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="flp_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="flp_id" foreignKey="fop_flp_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="flp"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="fop_id" sequenceNumberInPK="1"/>
+         <index name="fop_id_pk" unique="true">
+            <column ascending="true" name="fop_id"/>
+         </index>
          <index name="fop_name_uk" unique="true">
             <column ascending="true" name="name"/>
          </index>
