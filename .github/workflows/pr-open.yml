@@ -39,7 +39,9 @@ jobs:
     name: Generating Data Model
     uses: ./.github/workflows/reusable_data_model_gen.yml
 
+  # skip builds and deploys for now
   builds:
+    if: ${{ false}} 
     name: Builds
     runs-on: ubuntu-22.04
     permissions:
@@ -78,6 +80,7 @@ jobs:
 
 
   deploys:
+    if: ${{ false}} 
     name: Deploys
     needs:
       - builds
