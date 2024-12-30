@@ -177,6 +177,74 @@
                                     </td>
                                     <td><p>Type code of the proposal.</p></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="create_user">create_user</span></td>
+                                    <td>varchar</td>
+                                    <td>30</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="create_date">create_date</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>CURRENT_TIMESTAMP</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="update_user">update_user</span></td>
+                                    <td>varchar</td>
+                                    <td>30</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="update_date">update_date</span></td>
+                                    <td>timestamptz</td>
+                                    <td>35,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>CURRENT_TIMESTAMP</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -242,16 +310,17 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="197,5,501,163">
+<area shape="rect" id="node1" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="197,5,541,280">
 <area shape="rect" id="node2" href="fop.html" target="_top" title="fop" alt="" coords="5,37,153,213">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop_proposal.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="149,37,297,213">
-<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,99,105,187">
-<area shape="rect" id="node3" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="341,5,645,163">
+<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="149,73,297,249">
+<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,135,105,223">
+<area shape="rect" id="node3" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="422,5,605,93">
+<area shape="rect" id="node4" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="341,111,685,385">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fop_proposal.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

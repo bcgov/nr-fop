@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>fop - fp.app_fp</title>
+        <title>fop_preparer - fp.app_fp</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>fop</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <h1>fop_preparer</h1><p><span id="recordNumber">-1</span> rows</p><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Forest Operations Plan. Operational plan for managing a portion of the area within a FLP.</p>
+                            <p>Preparer of a FOP.</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -122,7 +122,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_id">fop_id</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_preparer_id">fop_preparer_id</span></td>
                                     <td>int8</td>
                                     <td>19</td>
                                     <td title=''></td>
@@ -130,26 +130,38 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="fop_preparer.fop_id references fop.fop_id via fop_preparer_fop_id_fk"><a href='fop_preparer.html'>fop_preparer</a><span class='relatedKey'>.fop_id</span></td>
-                                                <td class="constraint detail">fop_preparer_fop_id_fk</td>
-                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td title="fop_proposal.fop_id references fop.fop_id via fop_proposal_fop_id_fk"><a href='fop_proposal.html'>fop_proposal</a><span class='relatedKey'>.fop_id</span></td>
-                                                <td class="constraint detail">fop_proposal_fop_id_fk</td>
-                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Automatically generated key used to identify the uniqueness of a FOP</p></td>
+                                    <td><p>Automatically generated key used to identify the uniqueness of a preparer.</p></td>
                                 </tr>
                                 <tr>
-                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="name">name</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_id">fop_id</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="fop_preparer.fop_id references fop.fop_id via fop_preparer_fop_id_fk"><a href='fop.html'>fop</a><span class='relatedKey'>.fop_id</span></td>
+                                                <td class="constraint detail">fop_preparer_fop_id_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Foreign key referencing the FOP table.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="preparer_name">preparer_name</span></td>
                                     <td>varchar</td>
                                     <td>100</td>
                                     <td title=''></td>
@@ -163,29 +175,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="flp_id">flp_id</span></td>
-                                    <td>int8</td>
-                                    <td>19</td>
-                                    <td title=''></td>
-                                    <td title=''></td>
-                                    <td>null</td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                        </table>
-                                    </td>
-                                    <td>
-                                        <table border='0' cellspacing='0' cellpadding='0'>
-                                            <tr>
-                                                <td title="fop.flp_id references flp.flp_id via fop_flp_id_fk"><a href='flp.html'>flp</a><span class='relatedKey'>.flp_id</span></td>
-                                                <td class="constraint detail">fop_flp_id_fk</td>
-                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td></td>
+                                    <td><p>Name of the preparer.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="create_user">create_user</span></td>
@@ -202,7 +192,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>The user or proxy account that created the record.</p></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><span id="create_date">create_date</span></td>
@@ -219,7 +209,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>The date and time the record was created.</p></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><span id="update_user">update_user</span></td>
@@ -236,7 +226,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>The user or proxy account that created or last updated the record.</p></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><span id="update_date">update_date</span></td>
@@ -253,7 +243,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>The date and time the record was created or last updated.</p></td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -286,22 +276,16 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> fop_id_pk</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> fop_preparer_id_pk</td>
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
-                                    <td>fop_id</td>
+                                    <td>fop_preparer_id</td>
                                 </tr>
                                 <tr>
-                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> fop_name_uk</td>
-                                    <td>Must be unique</td>
-                                    <td><span title='Ascending'>Asc</span></td>
-                                    <td>name</td>
-                                </tr>
-                                <tr>
-                                    <td title='Indexed'>idx_fop_flp_id</td>
+                                    <td title='Indexed'>idx_fop_preparer_fop_id</td>
                                     <td>Performance</td>
                                     <td><span title='Ascending'>Asc</span></td>
-                                    <td>flp_id</td>
+                                    <td>fop_id</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -321,16 +305,24 @@
                                 <h5>Close relationships within degrees of separation</h5>
                                 <ul class="nav nav-tabs pull-left ui-sortable-handle">
                                     <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
                                 </ul>
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="149,113,436,388">
-<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,175,105,292">
-<area shape="rect" id="node3" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="491,5,674,152">
-<area shape="rect" id="node4" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="480,169,685,316">
+<area shape="rect" id="node1" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="197,5,509,280">
+<area shape="rect" id="node2" href="fop.html" target="_top" title="fop" alt="" coords="5,37,153,213">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop_preparer.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="149,167,297,343">
+<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,228,105,316">
+<area shape="rect" id="node3" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="341,5,653,280">
+<area shape="rect" id="node4" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="407,297,588,385">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fop_preparer.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
