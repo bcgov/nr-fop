@@ -130,6 +130,11 @@
                                     <td>null</td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="fop_proposal.fop_id references fop.fop_id via fop_proposal_fop_id_fk"><a href='fop_proposal.html'>fop_proposal</a><span class='relatedKey'>.fop_id</span></td>
+                                                <td class="constraint detail">fop_proposal_fop_id_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td>
@@ -159,7 +164,7 @@
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="flp_id">flp_id</span></td>
                                     <td>int8</td>
                                     <td>19</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -287,6 +292,12 @@
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>name</td>
                                 </tr>
+                                <tr>
+                                    <td title='Indexed'>idx_fop_flp_id</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>flp_id</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div><!-- /.box-body -->
@@ -309,8 +320,9 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="149,5,436,280">
-<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,67,105,184">
+<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="149,32,436,307">
+<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,93,105,211">
+<area shape="rect" id="node3" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="480,5,685,152">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
