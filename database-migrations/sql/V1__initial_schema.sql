@@ -6,6 +6,8 @@ CREATE TABLE app_fp.flp (
 )
 ;
 
+ALTER TABLE app_fp.flp ADD CONSTRAINT flp_id_pk PRIMARY KEY (flp_id);
+
 COMMENT ON TABLE app_fp.flp IS 'Forest Landscape Plan. Strategic long-term plan for managing forests in an area, under the new regulation regime.'
 ;
 
@@ -20,6 +22,8 @@ CREATE TABLE app_fp.fop (
     update_date         TIMESTAMP(6) WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
 )
 ;
+
+ALTER TABLE app_fp.fop ADD CONSTRAINT fop_id_pk PRIMARY KEY (fop_id);
 
 ALTER TABLE app_fp.fop ADD CONSTRAINT fop_flp_id_fk
     FOREIGN KEY (flp_id)
