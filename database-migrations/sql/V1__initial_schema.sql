@@ -9,8 +9,9 @@ CREATE TABLE app_fp.fop (
     update_date                timestamp(6)    DEFAULT TIMESTAMP(6) WITH TIME ZONE
 )
 ;
-alter table app_fop.fop add constraint fop_name_uk unique (name)
-;
+
+-- alter table app_fop.fop add constraint fop_name_uk unique (name)
+-- ;
 
 COMMENT ON TABLE app_fp.fop IS 'Forest Operations Plan. Operational plan for managing a portion of the area within a FLP.'
 ;
