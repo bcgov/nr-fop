@@ -1,4 +1,5 @@
 flyway_schema_history
+forest_operations_area
 fop_preparer
 fop_outcome_compliance
 fop_holder
