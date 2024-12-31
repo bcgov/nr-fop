@@ -180,6 +180,7 @@ COMMENT ON COLUMN app_fp.fop_outcome_compliance.update_user IS 'The user or prox
 COMMENT ON COLUMN app_fp.fop_outcome_compliance.update_date IS 'The date and time the record was created or last updated.'
 ;
 
+
 -- Final step - user creation
 
 CREATE USER ${api_db_username} WITH NOSUPERUSER NOCREATEDB NOCREATEROLE PASSWORD '${api_db_password}';
