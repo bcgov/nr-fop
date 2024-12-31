@@ -1,6 +1,7 @@
 flyway_schema_history
-fop_proposal
 fop_preparer
+fop_outcome_compliance
 fop_holder
+fop_proposal
 fop
 flp
