@@ -41,7 +41,7 @@ COMMENT ON TABLE app_fp.fop_lifecycle_state IS 'Code table for FOP workflow stat
 ;
 
 INSERT INTO app_fp.fop_lifecycle_state (code, description) VALUES 
-('DRAFT', 'Draft'')
+('DRAFT', 'Draft')
 ,('PUBLISHED', 'Published')
 ,('ENGAGEMENT', 'Engagement')
 ,('FINALIZATION', 'Finalization')
