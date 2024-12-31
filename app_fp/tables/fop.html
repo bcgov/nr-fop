@@ -193,6 +193,28 @@
                                     <td><p>Foreign key referencing the parent FLP.</p></td>
                                 </tr>
                                 <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lifecycle_state_code">lifecycle_state_code</span></td>
+                                    <td>varchar</td>
+                                    <td>20</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>&#39;DRAFT&#39;::character varying</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="fop.lifecycle_state_code references fop_lifecycle_state.code via fop_lifecycle_state_code_fk"><a href='fop_lifecycle_state.html'>fop_lifecycle_state</a><span class='relatedKey'>.code</span></td>
+                                                <td class="constraint detail">fop_lifecycle_state_code_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><span id="revision_count">revision_count</span></td>
                                     <td>int4</td>
                                     <td>10</td>
@@ -348,24 +370,26 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="215,196,519,500">
-<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="5,257,171,375">
-<area shape="rect" id="node3" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="583,5,748,152">
-<area shape="rect" id="node4" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="574,169,757,316">
-<area shape="rect" id="node5" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="563,333,768,480">
+<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="275,196,619,529">
+<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="35,204,201,321">
+<area shape="rect" id="node3" href="fop_lifecycle_state.html" target="_top" title="fop_lifecycle_state" alt="" coords="5,339,231,456">
+<area shape="rect" id="node4" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="683,5,848,152">
+<area shape="rect" id="node5" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="674,169,857,316">
+<area shape="rect" id="node6" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="663,333,868,480">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="879,5,1027,93">
-<area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="563,108,768,255">
-<area shape="rect" id="node3" href="fop.html" target="_top" title="fop" alt="" coords="215,299,519,603">
-<area shape="rect" id="node4" href="flp.html" target="_top" title="flp" alt="" coords="5,360,171,477">
-<area shape="rect" id="node5" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="583,272,748,419">
-<area shape="rect" id="node6" href="fop_outcome_compliance.html" target="_top" title="fop_outcome_compliance" alt="" coords="812,111,1093,199">
-<area shape="rect" id="node7" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="574,436,757,583">
-<area shape="rect" id="node8" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="821,216,1084,304">
+<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="979,5,1127,93">
+<area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="663,108,868,255">
+<area shape="rect" id="node3" href="fop.html" target="_top" title="fop" alt="" coords="275,299,619,632">
+<area shape="rect" id="node4" href="flp.html" target="_top" title="flp" alt="" coords="35,307,201,424">
+<area shape="rect" id="node5" href="fop_lifecycle_state.html" target="_top" title="fop_lifecycle_state" alt="" coords="5,441,231,559">
+<area shape="rect" id="node6" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="683,272,848,419">
+<area shape="rect" id="node7" href="fop_outcome_compliance.html" target="_top" title="fop_outcome_compliance" alt="" coords="912,111,1193,199">
+<area shape="rect" id="node8" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="674,436,857,583">
+<area shape="rect" id="node9" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="921,216,1184,304">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fop.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

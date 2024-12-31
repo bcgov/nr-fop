@@ -6,4 +6,5 @@ fop_holder
 cutblock
 fop_proposal
 fop
+fop_lifecycle_state
 flp
