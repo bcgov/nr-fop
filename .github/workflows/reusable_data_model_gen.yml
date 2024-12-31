@@ -28,7 +28,7 @@ jobs:
     needs: [vars]
     services:
       postgres:
-        image: postgres:17.2-alpine
+        image: postgis/postgis:17-master
         env:
           POSTGRES_DB: fp
           POSTGRES_USER: ${{ needs.vars.outputs.user }}
