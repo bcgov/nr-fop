@@ -23,7 +23,7 @@ x-postgres-vars: &postgres-vars
 
 services:
   database:
-    image: postgres:15
+    image: postgis/postgis:17-master
     container_name: database
     environment:
       <<: *postgres-vars
@@ -32,10 +32,10 @@ services:
     ports: ["5432:5432"]
 
   migrations:
-    image: flyway/flyway:9-alpine
+    image: flyway/flyway:latest
     container_name: migrations
     command: info migrate info
-    volumes: ["./backend/db/migrations:/flyway/sql:ro"]
+    volumes: ["./database-migrations/sql:/flyway/sql:ro"]
     environment:
       <<: *flyway-vars
       FLYWAY_DEFAULT_SCHEMA: USERS
