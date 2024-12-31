@@ -1,5 +1,6 @@
 flyway_schema_history
 fop_proposal
 fop_preparer
+fop_holder
 fop
 flp
