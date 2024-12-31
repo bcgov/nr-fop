@@ -12,7 +12,7 @@ COMMENT ON TABLE app_fp.flp IS 'Forest Landscape Plan. Strategic long-term plan 
 ;
 COMMENT ON COLUMN app_fp.flp.flp_id IS 'Automatically generated key used to identify the uniqueness of a FLP.'
 ;
-COMMENT ON COLUMN app_fp.flp.name 'Unique name of the FLP.'
+COMMENT ON COLUMN app_fp.flp.name IS 'Unique name of the FLP.'
 ;
 
 
