@@ -192,6 +192,7 @@ CREATE TABLE app_fp.forest_operations_area (
 )
 ;
 
+
 ALTER TABLE app_fp.forest_operations_area ADD CONSTRAINT forest_operations_area_id_pk PRIMARY KEY (forest_operations_area_id)
 ;
 CREATE INDEX idx_forest_operations_area_fop_proposal_id ON app_fp.forest_operations_area(fop_proposal_id)
