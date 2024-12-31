@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>forest_operations_area - fp.app_fp</title>
+        <title>cutblock - fp.app_fp</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>forest_operations_area</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <h1>cutblock</h1><p><span id="recordNumber">-1</span> rows</p><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Area details for a specific proposal within a Forest Operations Plan.</p>
+                            <p>Cutblock details for a specific proposal within a Forest Operations Plan.</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -122,7 +122,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="forest_operations_area_id">forest_operations_area_id</span></td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="cutblock_id">cutblock_id</span></td>
                                     <td>int8</td>
                                     <td>19</td>
                                     <td title=''></td>
@@ -136,7 +136,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Automatically generated key used to identify the uniqueness of an area record.</p></td>
+                                    <td><p>Automatically generated key used to identify the uniqueness of a cutblock record.</p></td>
                                 </tr>
                                 <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_proposal_id">fop_proposal_id</span></td>
@@ -152,8 +152,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="forest_operations_area.fop_proposal_id references fop_proposal.fop_proposal_id via forest_operations_area_fop_proposal_id_fk"><a href='fop_proposal.html'>fop_proposal</a><span class='relatedKey'>.fop_proposal_id</span></td>
-                                                <td class="constraint detail">forest_operations_area_fop_proposal_id_fk</td>
+                                                <td title="cutblock.fop_proposal_id references fop_proposal.fop_proposal_id via cutblock_fop_proposal_id_fk"><a href='fop_proposal.html'>fop_proposal</a><span class='relatedKey'>.fop_proposal_id</span></td>
+                                                <td class="constraint detail">cutblock_fop_proposal_id_fk</td>
                                                 <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
@@ -175,7 +175,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Polygon defining one continguous area of the FOA. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system.</p></td>
+                                    <td><p>Polygon defining the area of the cutblock. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="create_user">create_user</span></td>
@@ -276,13 +276,13 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> forest_operations_area_id_pk</td>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> cutblock_id_pk</td>
                                     <td>Primary key</td>
                                     <td><span title='Ascending'>Asc</span></td>
-                                    <td>forest_operations_area_id</td>
+                                    <td>cutblock_id</td>
                                 </tr>
                                 <tr>
-                                    <td title='Indexed'>idx_forest_operations_area_fop_proposal_id</td>
+                                    <td title='Indexed'>idx_cutblock_fop_proposal_id</td>
                                     <td>Performance</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>fop_proposal_id</td>
@@ -310,20 +310,20 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="255,5,677,280">
+<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="255,5,597,280">
 <area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="5,37,211,184">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/forest_operations_area.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/cutblock.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="541,5,689,93">
-<area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="155,108,360,255">
-<area shape="rect" id="node4" href="fop.html" target="_top" title="fop" alt="" coords="5,140,111,228">
-<area shape="rect" id="node3" href="fop_outcome_compliance.html" target="_top" title="fop_outcome_compliance" alt="" coords="475,111,756,199">
-<area shape="rect" id="node5" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="404,216,827,491">
+<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="404,5,747,280">
+<area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="155,295,360,441">
+<area shape="rect" id="node4" href="fop.html" target="_top" title="fop" alt="" coords="5,327,111,415">
+<area shape="rect" id="node3" href="fop_outcome_compliance.html" target="_top" title="fop_outcome_compliance" alt="" coords="435,297,716,385">
+<area shape="rect" id="node5" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="444,403,707,491">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/forest_operations_area.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/cutblock.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>

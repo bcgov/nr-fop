@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?><database name="fp" schema="app_fp" type="PostgreSQL - 17.2 (Debian 17.2-1.pgdg110+1)">
    <tables>
+      <table name="cutblock" remarks="Cutblock details for a specific proposal within a Forest Operations Plan." schema="app_fp" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="cutblock_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a cutblock record." size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_proposal_id" nullable="false" remarks="Foreign key referencing the FOP_PROPOSAL table." size="19" type="int8" typeCode="-5">
+            <parent column="fop_proposal_id" foreignKey="cutblock_fop_proposal_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_proposal"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="spatial_area" nullable="false" remarks="Polygon defining the area of the cutblock. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system." size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="cutblock_id" sequenceNumberInPK="1"/>
+         <index name="cutblock_id_pk" unique="true">
+            <column ascending="true" name="cutblock_id"/>
+         </index>
+         <index name="idx_cutblock_fop_proposal_id" unique="false">
+            <column ascending="true" name="fop_proposal_id"/>
+         </index>
+      </table>
       <table name="flp" remarks="Forest Landscape Plan. Strategic long-term plan for managing forests in an area, under the new regulation regime." schema="app_fp" type="TABLE">
-         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="flp_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="flp_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a FLP." size="19" type="int8" typeCode="-5">
             <child column="flp_id" foreignKey="fop_flp_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="Unique name of the FLP." size="100" type="varchar" typeCode="12"/>
          <primaryKey column="flp_id" sequenceNumberInPK="1"/>
          <index name="flp_id_pk" unique="true">
             <column ascending="true" name="flp_id"/>
@@ -30,13 +48,13 @@
          </index>
       </table>
       <table name="fop" remarks="Forest Operations Plan. Operational plan for managing a portion of the area within a FLP." schema="app_fp" type="TABLE">
-         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="fop_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a FOP" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="fop_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a FOP." size="19" type="int8" typeCode="-5">
             <child column="fop_id" foreignKey="fop_holder_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_holder"/>
             <child column="fop_id" foreignKey="fop_preparer_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_preparer"/>
             <child column="fop_id" foreignKey="fop_proposal_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_proposal"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="flp_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="flp_id" nullable="false" remarks="Foreign key referencing the parent FLP." size="19" type="int8" typeCode="-5">
             <parent column="flp_id" foreignKey="fop_flp_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="flp"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
@@ -95,10 +113,10 @@
             <parent column="fop_id" foreignKey="fop_preparer_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="preparer_name" nullable="false" remarks="Name of the preparer." size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="" size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="" size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="update_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
          <primaryKey column="fop_preparer_id" sequenceNumberInPK="1"/>
          <index name="fop_preparer_id_pk" unique="true">
             <column ascending="true" name="fop_preparer_id"/>
@@ -109,17 +127,18 @@
       </table>
       <table name="fop_proposal" remarks="Proposal for a specific operation within a Forest Operations Plan." schema="app_fp" type="TABLE">
          <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="fop_proposal_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a proposal." size="19" type="int8" typeCode="-5">
+            <child column="fop_proposal_id" foreignKey="cutblock_fop_proposal_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="cutblock"/>
             <child column="fop_proposal_id" foreignKey="fop_outcome_compliance_fop_proposal_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_outcome_compliance"/>
             <child column="fop_proposal_id" foreignKey="forest_operations_area_fop_proposal_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="forest_operations_area"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_id" nullable="false" remarks="Foreign key referencing the FOP table." size="19" type="int8" typeCode="-5">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_id" nullable="false" remarks="Foreign key referencing the parent FOP." size="19" type="int8" typeCode="-5">
             <parent column="fop_id" foreignKey="fop_proposal_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="proposal_type_code" nullable="false" remarks="Type code of the proposal." size="100" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="" size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="" size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="" size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="update_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="proposal_type_code" nullable="false" remarks="Type of proposal - Initial or Final." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
          <primaryKey column="fop_proposal_id" sequenceNumberInPK="1"/>
          <index name="fop_proposal_id_pk" unique="true">
             <column ascending="true" name="fop_proposal_id"/>
@@ -133,7 +152,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_proposal_id" nullable="false" remarks="Foreign key referencing the FOP_PROPOSAL table." size="19" type="int8" typeCode="-5">
             <parent column="fop_proposal_id" foreignKey="forest_operations_area_fop_proposal_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_proposal"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="spatial_area" nullable="false" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="spatial_area" nullable="false" remarks="Polygon defining one continguous area of the FOA. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system." size="2147483647" type="geometry" typeCode="1111"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="4" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
