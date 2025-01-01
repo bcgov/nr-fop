@@ -63,7 +63,7 @@ jobs:
           chmod a+rwx -R output
 
       - name: Run Schemaspy
-        run: docker run --network host -v "$PWD/output:/output" schemaspy/schemaspy:6.2.4 -t pgsql11 -db fp -host 127.0.0.1 -port 5432 -u ${{ needs.vars.outputs.user }} -p ${{ needs.vars.outputs.pass }} -schemas app_fp -X ".*\.(create_date|update_date|create_user|update_user|revision_count)"
+        run: docker run --network host -v "$PWD/output:/output" schemaspy/schemaspy:6.2.4 -t pgsql11 -db fp -host 127.0.0.1 -port 5432 -u ${{ needs.vars.outputs.user }} -p ${{ needs.vars.outputs.pass }} -schemas app_fp -X ".*\.(create_date|update_date|create_user|update_user|revision_count)" -x ".*\.(create_date|update_date|create_user|update_user|revision_count)"
 
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@v4
