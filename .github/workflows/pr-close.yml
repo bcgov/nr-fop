@@ -41,3 +41,8 @@ jobs:
           repository: ${{ github.repository }}/${{ matrix.package }}
           target: ${{ github.event.number }}
           tags: test
+
+  data-model-update:
+    name: Generating Data Model
+    uses: ./.github/workflows/reusable_data_model_gen.yml
+        

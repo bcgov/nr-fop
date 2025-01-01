@@ -34,7 +34,14 @@ jobs:
             Once merged, code will be promoted and handed off to following workflow run.
             [Main Merge Workflow](https://github.com/${{ github.repository }}/actions/workflows/merge-main.yml)
 
+  # TODO - Remove this later, just for testing.
+  data-model-update:
+    name: Generating Data Model
+    uses: ./.github/workflows/reusable_data_model_gen.yml
+
+  # skip builds and deploys for now
   builds:
+    if: ${{ false}} 
     name: Builds
     runs-on: ubuntu-22.04
     permissions:
@@ -73,6 +80,7 @@ jobs:
 
 
   deploys:
+    if: ${{ false}} 
     name: Deploys
     needs:
       - builds
