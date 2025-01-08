@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>fop_preparer - fp.app_fp</title>
+        <title>fop_district - fp.app_fp</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>fop_preparer</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <h1>fop_district</h1><p><span id="recordNumber">-1</span> rows</p><br />
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <i class="fa fa-file-text-o"></i>
@@ -84,7 +84,7 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body clearfix">
-                            <p>Preparer of a FOP.</p>
+                            <p>District details for a specific Forest Operations Plan.</p>
                         </div><!-- /.box-body -->
                     </div>
                 </section>
@@ -122,7 +122,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_preparer_id">fop_preparer_id</span></td>
+                                    <td><span id="fop_district_id">fop_district_id</span></td>
                                     <td>int8</td>
                                     <td>19</td>
                                     <td title=''></td>
@@ -136,7 +136,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Automatically generated key used to identify the uniqueness of a preparer.</p></td>
+                                    <td><p>Automatically generated key used to identify the uniqueness of a district record.</p></td>
                                 </tr>
                                 <tr>
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_id">fop_id</span></td>
@@ -152,8 +152,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fop_preparer.fop_id references fop.fop_id via fop_preparer_fop_id_fk"><a href='fop.html'>fop</a><span class='relatedKey'>.fop_id</span></td>
-                                                <td class="constraint detail">fop_preparer_fop_id_fk</td>
+                                                <td title="fop_district.fop_id references fop.fop_id via fop_district_fop_id_fk"><a href='fop.html'>fop</a><span class='relatedKey'>.fop_id</span></td>
+                                                <td class="constraint detail">fop_district_fop_id_fk</td>
                                                 <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
@@ -161,9 +161,9 @@
                                     <td><p>Foreign key referencing the FOP table.</p></td>
                                 </tr>
                                 <tr>
-                                    <td><span id="preparer_name">preparer_name</span></td>
+                                    <td><span id="district_code">district_code</span></td>
                                     <td>varchar</td>
-                                    <td>100</td>
+                                    <td>3</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -175,7 +175,7 @@
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                         </table>
                                     </td>
-                                    <td><p>Name of the preparer.</p></td>
+                                    <td><p>District organization code.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="revision_count">revision_count</span></td>
@@ -293,13 +293,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> fop_preparer_id_pk</td>
-                                    <td>Primary key</td>
-                                    <td><span title='Ascending'>Asc</span></td>
-                                    <td>fop_preparer_id</td>
-                                </tr>
-                                <tr>
-                                    <td title='Indexed'>idx_fop_preparer_fop_id</td>
+                                    <td title='Indexed'>idx_fop_district_fop_id</td>
                                     <td>Performance</td>
                                     <td><span title='Ascending'>Asc</span></td>
                                     <td>fop_id</td>
@@ -327,22 +321,22 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="255,5,567,309">
+<area shape="rect" id="node1" href="fop_district.html" target="_top" title="fop_district" alt="" coords="255,5,559,309">
 <area shape="rect" id="node2" href="fop.html" target="_top" title="fop" alt="" coords="5,37,211,243">
 </map>
-                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop_preparer.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fop_district.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="275,179,480,384">
-<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="68,201,168,289">
-<area shape="rect" id="node3" href="fop_lifecycle_state.html" target="_top" title="fop_lifecycle_state" alt="" coords="5,307,231,395">
-<area shape="rect" id="node4" href="fop_district.html" target="_top" title="fop_district" alt="" coords="595,5,765,93">
-<area shape="rect" id="node5" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="598,111,762,199">
-<area shape="rect" id="node6" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="524,216,836,520">
-<area shape="rect" id="node7" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="589,537,771,625">
+<area shape="rect" id="node1" href="fop.html" target="_top" title="fop" alt="" coords="275,377,480,583">
+<area shape="rect" id="node2" href="flp.html" target="_top" title="flp" alt="" coords="68,400,168,488">
+<area shape="rect" id="node3" href="fop_lifecycle_state.html" target="_top" title="fop_lifecycle_state" alt="" coords="5,505,231,593">
+<area shape="rect" id="node4" href="fop_district.html" target="_top" title="fop_district" alt="" coords="524,5,828,309">
+<area shape="rect" id="node5" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="594,327,758,415">
+<area shape="rect" id="node6" href="fop_preparer.html" target="_top" title="fop_preparer" alt="" coords="585,432,767,520">
+<area shape="rect" id="node7" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="585,537,767,625">
 </map>
-                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fop_preparer.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fop_district.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                 </div>
                             </div>
