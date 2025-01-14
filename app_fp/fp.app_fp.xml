@@ -5,12 +5,16 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_proposal_id" nullable="false" remarks="Foreign key referencing the FOP_PROPOSAL table." size="19" type="int8" typeCode="-5">
             <parent column="fop_proposal_id" foreignKey="cutblock_fop_proposal_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_proposal"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="spatial_area" nullable="false" remarks="Polygon defining the area of the cutblock. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system." size="2147483647" type="geometry" typeCode="1111"/>
-         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="revision_count" nullable="false" remarks="Track version for optimistic locking." size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="5" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="7" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="fop_holder_id" nullable="false" remarks="Foreign key referencing the FOP holder table." size="19" type="int8" typeCode="-5">
+            <parent column="fop_holder_id" foreignKey="cutblock_fop_holder_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_holder"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="spatial_area" nullable="false" remarks="Polygon defining the area of the cutblock. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system." size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="development_date" nullable="false" remarks="The date when the cutblock development is planned or occurred." size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="revision_count" nullable="false" remarks="Track version for optimistic locking." size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="7" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="update_user" nullable="true" remarks="The user or proxy account that created or last updated the record." size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="9" name="update_date" nullable="true" remarks="The date and time the record was created or last updated." size="35" type="timestamptz" typeCode="93"/>
          <primaryKey column="cutblock_id" sequenceNumberInPK="1"/>
          <index name="cutblock_id_pk" unique="true">
             <column ascending="true" name="cutblock_id"/>
@@ -88,7 +92,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_id" nullable="false" remarks="Foreign key referencing the FOP table." size="19" type="int8" typeCode="-5">
             <parent column="fop_id" foreignKey="fop_district_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="district_code" nullable="false" remarks="District organization code." size="3" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="district_code" nullable="false" remarks="District organization code from ORG_UNIT table." size="3" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="revision_count" nullable="false" remarks="Track version for optimistic locking." size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="5" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
@@ -99,11 +103,13 @@
          </index>
       </table>
       <table name="fop_holder" remarks="Holder of a FOP." schema="app_fp" type="TABLE">
-         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="fop_holder_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a holder." size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="fop_holder_id" nullable="false" remarks="Automatically generated key used to identify the uniqueness of a holder." size="19" type="int8" typeCode="-5">
+            <child column="fop_holder_id" foreignKey="cutblock_fop_holder_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="cutblock"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_id" nullable="false" remarks="Foreign key referencing the FOP table." size="19" type="int8" typeCode="-5">
             <parent column="fop_id" foreignKey="fop_holder_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="client_id" nullable="false" remarks="Foreign key referencing Forest Client." size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="client_id" nullable="false" remarks="Forest Client Number from the Client system." size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="revision_count" nullable="false" remarks="Track version for optimistic locking." size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="5" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
@@ -173,7 +179,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="fop_id" nullable="false" remarks="Foreign key referencing the parent FOP." size="19" type="int8" typeCode="-5">
             <parent column="fop_id" foreignKey="fop_proposal_fop_id_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="proposal_type_code" nullable="false" remarks="Type of proposal - Initial or Final." size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="proposal_type_code" nullable="false" remarks="Type of proposal." size="100" type="varchar" typeCode="12">
+            <parent column="code" foreignKey="fop_proposal_proposal_type_code_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="proposal_type"/>
+         </column>
          <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="revision_count" nullable="false" remarks="Track version for optimistic locking." size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_user" nullable="false" remarks="The user or proxy account that created the record." size="30" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="5" name="create_date" nullable="false" remarks="The date and time the record was created." size="35" type="timestamptz" typeCode="93"/>
@@ -204,6 +212,16 @@
          </index>
          <index name="idx_forest_operations_area_fop_proposal_id" unique="false">
             <column ascending="true" name="fop_proposal_id"/>
+         </index>
+      </table>
+      <table name="proposal_type" remarks="Code table for proposal types." schema="app_fp" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="code" nullable="false" remarks="" size="20" type="varchar" typeCode="12">
+            <child column="proposal_type_code" foreignKey="fop_proposal_proposal_type_code_fk" implied="false" onDeleteCascade="false" schema="app_fp" table="fop_proposal"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="description" nullable="false" remarks="" size="100" type="varchar" typeCode="12"/>
+         <primaryKey column="code" sequenceNumberInPK="1"/>
+         <index name="proposal_type_code_pk" unique="true">
+            <column ascending="true" name="code"/>
          </index>
       </table>
    </tables>

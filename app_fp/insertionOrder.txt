@@ -1,11 +1,12 @@
 flp
 fop_lifecycle_state
+proposal_type
 fop
 fop_proposal
-cutblock
-fop_district
 fop_holder
+fop_district
 fop_outcome_compliance
 fop_preparer
 forest_operations_area
+cutblock
 flyway_schema_history

@@ -161,6 +161,28 @@
                                     <td><p>Foreign key referencing the FOP_PROPOSAL table.</p></td>
                                 </tr>
                                 <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fop_holder_id">fop_holder_id</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="cutblock.fop_holder_id references fop_holder.fop_holder_id via cutblock_fop_holder_id_fk"><a href='fop_holder.html'>fop_holder</a><span class='relatedKey'>.fop_holder_id</span></td>
+                                                <td class="constraint detail">cutblock_fop_holder_id_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Foreign key referencing the FOP holder table.</p></td>
+                                </tr>
+                                <tr>
                                     <td><span id="spatial_area">spatial_area</span></td>
                                     <td>geometry</td>
                                     <td>2147483647</td>
@@ -176,6 +198,23 @@
                                         </table>
                                     </td>
                                     <td><p>Polygon defining the area of the cutblock. Using EPSG:3005 (NAD83/BC Albers) projected coordinate system.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="development_date">development_date</span></td>
+                                    <td>date</td>
+                                    <td>13</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>The date when the cutblock development is planned or occurred.</p></td>
                                 </tr>
                                 <tr>
                                     <td><span id="revision_count">revision_count</span></td>
@@ -327,18 +366,21 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="255,5,597,309">
-<area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="5,37,211,184">
+<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="255,56,621,419">
+<area shape="rect" id="node2" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="25,199,191,345">
+<area shape="rect" id="node3" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="5,5,211,181">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/cutblock.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="404,5,747,309">
-<area shape="rect" id="node2" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="155,324,360,471">
-<area shape="rect" id="node4" href="fop.html" target="_top" title="fop" alt="" coords="5,356,111,444">
-<area shape="rect" id="node3" href="fop_outcome_compliance.html" target="_top" title="fop_outcome_compliance" alt="" coords="435,327,716,415">
-<area shape="rect" id="node5" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="444,432,707,520">
+<area shape="rect" id="node1" href="cutblock.html" target="_top" title="cutblock" alt="" coords="491,5,857,368">
+<area shape="rect" id="node2" href="fop_holder.html" target="_top" title="fop_holder" alt="" coords="261,105,427,252">
+<area shape="rect" id="node3" href="fop_proposal.html" target="_top" title="fop_proposal" alt="" coords="241,307,447,483">
+<area shape="rect" id="node4" href="fop.html" target="_top" title="fop" alt="" coords="49,200,154,288">
+<area shape="rect" id="node6" href="proposal_type.html" target="_top" title="proposal_type" alt="" coords="5,368,197,456">
+<area shape="rect" id="node5" href="fop_outcome_compliance.html" target="_top" title="fop_outcome_compliance" alt="" coords="533,491,815,579">
+<area shape="rect" id="node7" href="forest_operations_area.html" target="_top" title="forest_operations_area" alt="" coords="543,385,805,473">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/cutblock.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
